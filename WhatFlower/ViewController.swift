@@ -19,6 +19,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -100,9 +102,19 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
                 if response.result.isSuccess{
                     print("Got the wikipedia info.")
                     print(response)
+                    
+                    //Convert data response using SwiftyJSON
+                    let flowerJSON : JSON = JSON(response.result.value!)
+                    
+                    let pageid = flowerJSON["query"]["pageids"][0].stringValue
+                    
+                    let flowerDescription = flowerJSON["query"]["pages"][pageid]["extract"].stringValue
+                    
+                    self.label.text = flowerDescription
                 }
         }
     }
+    
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         
         present(imagePicker, animated: true, completion: nil)
