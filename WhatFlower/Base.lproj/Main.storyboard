@@ -24,29 +24,29 @@
                                     <constraint firstAttribute="width" secondItem="hz0-OK-D52" secondAttribute="height" multiplier="1:1" id="nRu-53-4l7"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-oq-f5r">
-                                <rect key="frame" x="16" y="458" width="343" height="189"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="520-cO-Dhp">
+                                <rect key="frame" x="0.0" y="439" width="375" height="228"/>
+                                <color key="backgroundColor" red="0.29411764709999999" green="0.4549019608" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.29411764705882354" green="0.45490196078431372" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hz0-OK-D52" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1Cp-cC-3Mm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Pr-oq-f5r" secondAttribute="trailing" constant="16" id="BWs-jo-Mdq"/>
-                            <constraint firstItem="3Pr-oq-f5r" firstAttribute="top" secondItem="hz0-OK-D52" secondAttribute="bottom" constant="19" id="OKS-9o-OjN"/>
+                            <constraint firstItem="520-cO-Dhp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="20G-nY-bXn"/>
+                            <constraint firstItem="520-cO-Dhp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="65f-8P-JLy"/>
+                            <constraint firstItem="520-cO-Dhp" firstAttribute="top" secondItem="hz0-OK-D52" secondAttribute="bottom" id="B6k-gm-Gl5"/>
                             <constraint firstItem="hz0-OK-D52" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YV2-vw-ROH"/>
-                            <constraint firstItem="3Pr-oq-f5r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="f77-ul-kmD"/>
                             <constraint firstItem="hz0-OK-D52" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fOh-7t-JV0"/>
-                            <constraint firstItem="3Pr-oq-f5r" firstAttribute="top" secondItem="hz0-OK-D52" secondAttribute="bottom" constant="19" id="rml-db-yss"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Pr-oq-f5r" secondAttribute="bottom" constant="20" id="wAf-PB-ulJ"/>
+                            <constraint firstItem="520-cO-Dhp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uYX-za-eRc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="TDO-ZV-YrA">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="UG4-G0-prg">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cameraTapped:" destination="BYZ-38-t0r" id="pzg-pX-Wt8"/>
                             </connections>
@@ -54,7 +54,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="hz0-OK-D52" id="BWv-FX-n56"/>
-                        <outlet property="label" destination="3Pr-oq-f5r" id="SRN-e7-KRm"/>
+                        <outlet property="textView" destination="520-cO-Dhp" id="T8g-EM-5lS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

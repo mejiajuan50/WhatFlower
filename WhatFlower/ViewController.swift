@@ -20,7 +20,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var textView: UITextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +114,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
                     
                     self.imageView.sd_setImage(with: URL(string: flowerImageURL))
                     
-                    self.label.text = flowerDescription
+                    self.textView.text = flowerDescription
                 }
         }
     }
