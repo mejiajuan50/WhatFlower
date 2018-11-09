@@ -11,6 +11,7 @@ import CoreML
 import Vision
 import Alamofire
 import SwiftyJSON
+import SDWebImage
 
 class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -39,8 +40,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             }
             
             detect(image: convertedCIImage)
-            
-            imageView.image = userPickedImage
             
         }
         
@@ -88,12 +87,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         let parameters : [String:String] = [
             "format" : "json",
             "action" : "query",
-            "prop" : "extracts",
+            "prop" : "extracts|pageimages",
             "exintro" : "",
             "explaintext" : "",
             "titles" : flowerName,
             "indexpageids" : "",
             "redirects" : "1",
+            "pithumbsize" : "500"
             ]
     
         Alamofire.request(wikipediaURL, method: .get, parameters: parameters).responseJSON
@@ -101,7 +101,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             
                 if response.result.isSuccess{
                     print("Got the wikipedia info.")
-                    print(response)
                     
                     //Convert data response using SwiftyJSON
                     let flowerJSON : JSON = JSON(response.result.value!)
@@ -109,6 +108,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
                     let pageid = flowerJSON["query"]["pageids"][0].stringValue
                     
                     let flowerDescription = flowerJSON["query"]["pages"][pageid]["extract"].stringValue
+                    
+                    let flowerImageURL = flowerJSON["query"]["pages"][pageid]["thumbnail"]["source"].stringValue
+                    
+                    self.imageView.sd_setImage(with: URL(string: flowerImageURL))
                     
                     self.label.text = flowerDescription
                 }
